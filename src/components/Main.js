@@ -62,7 +62,7 @@ export default function Body({ handleScrollToProjects, handleButtonClickKOMPAS, 
                 <iframe src="./vid/kompasAPI.mp4" frameBorder="0" allowFullScreen title='kompas'></iframe>
               </div>
             </div>
-            <div>
+            <div classname='description'>
               <h3>API КОМПАС-3D</h3>
               <p>
                 <div className='paragraph'>MFC SDI-приложение с реализацией построения параметрической сборки. Программа постепенно строит составные детали, после чего добавляет их в сборку 
@@ -79,7 +79,7 @@ export default function Body({ handleScrollToProjects, handleButtonClickKOMPAS, 
                 <iframe src="./vid/auth.mp4" frameBorder="0" allowFullScreen title='kompas'></iframe>
               </div>
             </div>
-            <div>
+            <div classname='description'>
               <h3>SQLite</h3>
               <p>
                 <div className='paragraph'>Разработка несложного интерфейса для работы с БД, в моем случае SQLite. Авторизованные пользователи могут добавлять новые строки в базу данных, для 
@@ -96,7 +96,7 @@ export default function Body({ handleScrollToProjects, handleButtonClickKOMPAS, 
                 <iframe src="./vid/shop.mp4" frameBorder="0" allowFullScreen title='shop'></iframe>
               </div>
             </div>
-            <div>
+            <div classname='description'>
               <h3>ReactJS Интернет-магазин</h3>
               <p>
                 <div className='paragraph'>Pet-проект с реализацией интернет-магазина, который отображает карточки товаров мебели. Можно посмотреть описание товара, добавить
@@ -113,7 +113,7 @@ export default function Body({ handleScrollToProjects, handleButtonClickKOMPAS, 
                 <iframe src="./vid/timeView.mp4" frameBorder="0" allowFullScreen title='shop'></iframe>
               </div>
             </div>
-            <div>
+            <div classname='description'>
               <h3>Custom View</h3>
               <p>
                 <div className='paragraph'>Кастомный вид в Android Studio, который отображает текущее время (GMT+3).</div>
@@ -129,7 +129,7 @@ export default function Body({ handleScrollToProjects, handleButtonClickKOMPAS, 
                 <iframe src="./vid/timeZones.mp4" frameBorder="0" allowFullScreen title='shop'></iframe>
               </div>
             </div>
-            <div>
+            <div classname='description'>
               <h3>Android-application</h3>
               <p>
                 <div className='paragraph'>Android-приложение/игра на тестирование памяти.</div>
