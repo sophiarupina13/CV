@@ -49,6 +49,7 @@ header {
 header nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -65,39 +66,100 @@ header nav {
 }
 
 .nav {
-  display: flex;
-  list-style: none;
-  align-items: center;
+  display: none;
 }
 
-.nav li {
-  font-size: 1.7vw;
-  margin-left: 1.2rem;
+nav .mobile-menu {
+  scale: 1.3;
   cursor: pointer;
   transition: transform 500ms ease;
-  font-weight: 400;
 }
 
-.nav li:hover {
-  transform: scale(1.1);
+nav .mobile-menu:hover, 
+nav .mobile-menu.active {
+  transform: scale(1.15);
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  background: rgba(0,0,0,0.8);
+  transition: opacity 0.5s ease-in-out;
+  z-index: 100;
+  overflow: auto;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-list {
+  position: fixed;
+  background: #fff;
+  padding: 3vw 4vw;
+  width: 30vw;
+  height: 100vh;
+  top: 0;
+  right: -100%;
+  z-index: 101;
+  transition: right 0.5s ease-in-out;
+}
+
+.mobile-menu-list.open {
+  right: 0;
+}
+
+.close {
+  scale: 1.3;
+  cursor: pointer;
+  transition: transform 500ms ease;
+}
+
+.close:hover {
+  transform: scale(1.2);
+}
+
+.mobile-nav li {
+  font-size: 3.3vw;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 500ms ease;
+}
+
+.mobile-nav li:first-child {
+  margin-top: 1.5vh;
+}
+
+.mobile-nav li:not(:last-child) {
+  margin-bottom: 1.2vh;
+}
+
+.mobile-nav li:hover {
+  transform: scale(1.03);
 }
 
 header nav h1 {
-  font-size: 1.7vw;
+  font-size: 2.2vw;
   font-weight: 600;
 }
 
 body h1 {
-  font-size: 3.4vw;
+  font-size: 3.7vw;
 }
 
 body h3 {
-  font-size: 2.5vw;
+  font-size: 2.8vw;
   white-space: nowrap;
 }
 
 body p {
-  font-size: 1.7vw;
+  font-size: 2vw;
 }
 
 body p .paragraph:not(:last-child) {
@@ -118,7 +180,7 @@ body b {
 }
 
 .intro-wrapper {
-  padding: 4vh 2vw 1.5vh 2vw;
+  padding: 5vh 2vw 2vh 2vw;
 }
 
 .intro h1 {
@@ -127,12 +189,14 @@ body b {
 
 .intro h2 {
   margin-bottom: 3vh;
-  font-size: 1.9vw;
+  font-size: 2.3vw;
+  width: 60%;
+  text-align: center;
 }
 
 .intro button {
   border: none;
-  padding: 0.8vh 4.4vw;
+  padding: 1.8vw 5vw;
   border-radius: 0.3vh;
   cursor: pointer;
   transition: transform 500ms ease;
@@ -140,7 +204,8 @@ body b {
   -moz-box-shadow: 9px 4px 50px -13px rgba(0,0,0,0.6);
   box-shadow: 9px 4px 50px -13px rgba(0,0,0,0.6);
   margin-bottom: 3vw;
-  font-size: 1.5vw;
+  font-size: 2vw;
+  font-weight: 500;
 }
 
 .intro button:hover {
@@ -148,34 +213,52 @@ body b {
 }
 
 .mouse {
-  width: 1.3vw;
-  height: 2vw;
-  border: 1px solid #ffffffd5;
-  border-radius: 2vw;
-  position: relative;
+  display: none;
 }
 
-.mouse-wheel {
-  width: 0.1vh;
-  height: 0.1vh;
-  background-color: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: 0.3vh;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: scroll 1.8s infinite;
+.scroll {
+	width: 2.1vw;
+	height: 2.1vw;
+	border: 1px solid #ffffff;
+	border-radius: 50%;
+	position: relative;
+	animation: down 1.5s infinite;
+	-webkit-animation: down 1.5s infinite;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0.4vw;
+		left: 0.52vw;
+		width: 0.7vw;
+		height: 0.7vw;
+		border-left: 1px solid #ffffff;
+  	border-bottom: 1px solid #ffffff;
+		transform: rotate(-45deg);
+	}
 }
 
-@keyframes scroll {
-  0% {
-    top: 0.25vh;
-    opacity: 1;
-  }
-  100% {
-    top: 0.9vh;
-    opacity: 0;
-  }
+@keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(8px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+
+@-webkit-keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(8px);
+	}
+	40% {
+		transform: translate(0);
+	}
 }
 
 .about-me {
@@ -195,7 +278,7 @@ body b {
 }
 
 .info {
-  display: flex;
+  display: block;
   justify-content: space-between;
   gap: 3vh;
 }
@@ -204,20 +287,24 @@ body b {
   margin-bottom: 1.5vh;
 }
 
+.info p {
+  margin-bottom: 1.8vh;
+}
+
 .skills ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3vh; 
+  gap: 0.8vw; 
 }
 
 .skills button {
   border: none;
-  padding: 0.8vw 1.5vw;
+  padding: 1vw 2vw;
   background: #dadada;
   border-radius: 0.2vh;
   color: #707070;
   font-weight: 700;
-  font-size: 1.3vw;
+  font-size: 1.6vw;
   white-space: nowrap;
   cursor: pointer;
   transition: background 800ms ease, transform 800ms ease, color 800ms ease;
@@ -231,7 +318,7 @@ body b {
 
 .projects {
   background: #f1f1f1;
-  padding: 3vh 10vw;
+  padding: 8vw 10vw;
   display: flex;
   flex-direction: column;
 }
@@ -279,14 +366,14 @@ body b {
 
 .project-card button {
   border: none;
-  padding: 1.8vw 4vw;
+  padding: 2vw 5vw;
   background: #644d5a;
   color: white;
   font-weight: 600;
   border-radius: 0.3vh;
   cursor: pointer;
   transition: transform 500ms ease;
-  font-size: 1.5vw;
+  font-size: 2vw;
 }
 
 .project-card button:hover {
@@ -309,8 +396,8 @@ footer .contacts {
 }
 
 footer h4 {
-  margin-bottom: 1vw;
-  font-size: 1.6vw;
+  margin-bottom: 2.5vw;
+  font-size: 2vw;
 }
 
 .contacts ul {
@@ -318,11 +405,15 @@ footer h4 {
 }
 
 .contacts ul li {
-  margin-right: 1.3vw;
+  margin-left: 1.7vw;
+}
+
+.socials h4 {
+  text-align: end;
 }
 
 footer img {
-  width: 2.7vw;
+  width: 4vw;
   cursor: pointer;
   transition: transform 500ms ease;
 }
@@ -338,11 +429,11 @@ footer .border {
 
 footer p {
   float: right;
-  font-size: 1.3vw;
+  font-size: 1.6vw;
 }
 
 @media screen and (min-width: 1290px) {
-  
+
   .wrapper {
     padding: 2vh 2vw;
   }
@@ -358,6 +449,10 @@ footer p {
     display: flex;
     list-style: none;
     align-items: center;
+  }
+
+  nav .mobile-menu {
+    display: none;
   }
 
   .nav li {
@@ -430,6 +525,7 @@ footer p {
     -moz-box-shadow: 9px 4px 50px -13px rgba(0,0,0,0.6);
     box-shadow: 9px 4px 50px -13px rgba(0,0,0,0.6);
     margin-bottom: 3vw;
+    font-size: 1.1vw;
   }
 
   .intro button:hover {
@@ -437,6 +533,7 @@ footer p {
   }
 
   .mouse {
+    display: block;
     width: 1vw;
     height: 1.8vw;
     border: 2px solid #ffffffd5;
@@ -445,8 +542,8 @@ footer p {
   }
 
   .mouse-wheel {
-    width: 0.4vh;
-    height: 0.4vh;
+    width: 0.5vh;
+    height: 0.5vh;
     background-color: #fff;
     border-radius: 50%;
     position: absolute;
@@ -465,6 +562,10 @@ footer p {
       top: 2.5vh;
       opacity: 0;
     }
+  }
+
+  .scroll {
+    display: none;
   }
 
   .about-me {
@@ -588,6 +689,7 @@ footer p {
     border-radius: 0.7vh;
     cursor: pointer;
     transition: transform 500ms ease;
+    font-size: 0.9vw;
   }
 
   .project-card button:hover {
@@ -619,7 +721,7 @@ footer p {
   }
 
   .contacts ul li {
-    margin-right: 0.7vw;
+    margin-left: 0.7vw;
     list-style: none;
   }
 

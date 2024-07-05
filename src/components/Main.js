@@ -10,6 +10,8 @@ export default function Body({ handleScrollToProjects, handleButtonClickKOMPAS, 
         <div className="mouse">
           <div className="mouse-wheel"></div>
         </div>
+        <div className='scroll'>
+        </div>
       </div>
       <div className='about-me' id='about-me'>
         <h1>Обо мне</h1>
