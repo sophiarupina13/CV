@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Body({ handleScrollToProjects, handleButtonClickKOMPAS, handleButtonClickSQL, handleButtonClickShop, handleButtonClickCustomView, handleButtonClickTimeZones }) {
+export default function Body({ handleScrollToProjects, handleButtonClickKOMPAS, handleButtonClickSQLite, handleButtonClickShop, handleButtonClickCustomView, handleButtonClickTimeZones }) {
   return (
     <main>
       <div className='intro intro-wrapper'>
@@ -88,7 +88,7 @@ export default function Body({ handleScrollToProjects, handleButtonClickKOMPAS, 
                   неавторизованных доступен только просмотр, остальные функции пока в разработке.</div>
                 <div className='paragraph'>Стек: <b>express.js, SQLite, JS, JSON, HTML, CSS.</b></div>
               </p>
-              <button onClick={handleButtonClickSQL}>Перейти в Git</button>
+              <button onClick={handleButtonClickSQLite}>Перейти в Git</button>
             </div>
           </li>
           <li className='project-card'>

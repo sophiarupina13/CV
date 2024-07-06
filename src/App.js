@@ -45,8 +45,8 @@ function App() {
     window.open('https://github.com/sophiarupina13/KOMPAS-3D_API.git', '_blank');
   };
 
-  const handleButtonClickSQL = () => {
-    window.open('https://github.com/sophiarupina13/MySQL.git', '_blank');
+  const handleButtonClickSQLite = () => {
+    window.open('https://github.com/sophiarupina13/SQLite.git', '_blank');
   };
 
   const handleButtonClickShop = () => {
@@ -68,7 +68,7 @@ function App() {
       handleScrollToContacts={handleScrollToContacts}/>
       <Main handleScrollToProjects={handleScrollToProjects}
       handleButtonClickKOMPAS={handleButtonClickKOMPAS}
-      handleButtonClickSQL={handleButtonClickSQL}
+      handleButtonClickSQLite={handleButtonClickSQLite}
       handleButtonClickShop={handleButtonClickShop}
       handleButtonClickCustomView={handleButtonClickCustomView}
       handleButtonClickTimeZones={handleButtonClickTimeZones}/>

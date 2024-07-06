@@ -1483,7 +1483,7 @@ footer p {
 
   .mouse {
     display: block;
-    width: 1vw;
+    width: 1.2vw;
     height: 1.8vw;
     border: 2px solid #ffffffd5;
     border-radius: 2vw;
@@ -1491,7 +1491,7 @@ footer p {
   }
 
   .mouse-wheel {
-    width: 0.5vh;
+    width: 0.45vh;
     height: 0.5vh;
     background-color: #fff;
     border-radius: 50%;
